@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Mall '27 — A Reality Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="brandstrip">
+    <span><b>Brain Behaviour Academy</b></span><span class="dot">·</span><span>Money Reality Check</span>
+  </div>
+  <div class="bar">
+    <div class="logo">
+      <div class="mark"></div>
+      <div><b>DREAM MALL</b><span>EST. 2027 · YOUR FUTURE SELF</span></div>
+    </div>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <span class="ico" id="cartIco">🛒</span>
+      <span class="meta">
+        <small>Your dream year</small>
+        <span class="total" id="barTotal">₹0</span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Self-assessment · imagine you're 27</span>
+  <h1>You are 27 Yrs Old. You've got a job, a salary, and <em>great taste.</em></h1>
+  <p>Meet your future self — a 27-year-old who loves gadgets, travel, fashion, food and a good time. <b>Add everything you think you'll buy in one year.</b> Don't hold back. Then hit checkout and meet reality.</p>
+  <div class="scene">
+    <span class="chip">📍 Living in <b>Bengaluru</b></span>
+    <span class="chip">🎯 Goal: <b>the best year ever</b></span>
+    <span class="chip">💸 Rule: <b>buy what future-you wants</b></span>
+  </div>
+  <div class="start-cue"><span class="arrow-down">↓</span> Start shopping — your cart total is always at the top</div>
+</section>
+
+<main>
+  <nav class="nav-cats" id="navCats" aria-label="Categories"></nav>
+  <div id="shop"></div>
+</main>
+
+<!-- Cart drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="drawer-head">
+    <h3>Your dream year 🛍️</h3>
+    <button id="closeDrawer" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="ft-row">
+      <small>Total · just the fun stuff</small>
+      <span class="grand" id="drawerTotal">₹0</span>
+    </div>
+    <button class="checkout" id="checkoutBtn" disabled>Check out & face reality →</button>
+  </div>
+</aside>
+
+<!-- Reality check -->
+<div class="reality" id="reality">
+  <button class="r-close" id="rClose" aria-label="Back to shopping">✕</button>
+  <div class="r-wrap">
+    <div class="r-eyebrow">Reality check · the receipt</div>
+    <h1 class="r-title">So… can future-you actually afford this?</h1>
+
+    <div class="receipt">
+      <div class="rc-label">Your dream year — wants only</div>
+      <div class="megatotal" id="megaTotal">₹0</div>
+      <div class="sub-line">That's <b id="perMonthWants">₹0</b> every single month, just on things you <b>want</b>.</div>
+
+      <div class="breakdown">
+        <div class="b-row"><div class="k">Everything in your cart</div><div class="v" id="bWants">₹0</div></div>
+
+        <div class="b-row add">
+          <div class="k">+ The boring stuff you forgot
+            <small>None of this was in your cart — but you can't skip it. Rough Bengaluru cost of just existing:</small>
+          </div>
+          <div class="v" id="bEssentials">₹0</div>
+        </div>
+        <div class="essentials" id="essentialsList"></div>
+
+        <div class="b-row add"><div class="k">+ Savings you should keep<small>Smart adults save at least 20% — for emergencies, goals, and future-you.</small></div><div class="v" id="bSavings">₹0</div></div>
+        <div class="b-row add"><div class="k">+ Income tax<small>The government takes its share before the money reaches you (rough estimate).</small></div><div class="v" id="bTax">₹0</div></div>
+
+        <div class="b-row total"><div class="k">Salary you'd need to earn</div><div class="v" id="bGross">₹0</div></div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="rc-label">To live this life, future-you must earn</div>
+      <div class="salary" id="vSalaryMonth">₹0 / month</div>
+      <div class="per">…in your hand, that's about <span id="vNetMonth">₹0</span>/month to spend & save.</div>
+      <div class="ctc">That's a job paying roughly <b id="vCTC">₹0</b> a year.</div>
+    </div>
+
+    <div class="compare">
+      <h3>Now meet the real world</h3>
+      <p style="color:var(--ink-soft);font-size:.94rem">Drag the slider: what do <em>you</em> think you'll earn per month at 27?</p>
+      <div class="sal-input">
+        <input type="range" id="salSlider" min="15000" max="400000" step="5000" value="50000">
+        <span class="salval" id="salValue">₹50,000 / mo</span>
+      </div>
+      <div class="bars">
+        <div class="bar-block">
+          <div class="bl"><span>💸 What this dream year needs</span><b id="barNeedLabel">₹0/mo</b></div>
+          <div class="track"><div class="fill need" id="fillNeed"></div></div>
+        </div>
+        <div class="bar-block">
+          <div class="bl"><span>🧑‍💼 What you expect to earn</span><b id="barRealLabel">₹0/mo</b></div>
+          <div class="track"><div class="fill real" id="fillReal"></div></div>
+        </div>
+      </div>
+      <div class="multiplier" id="multiplier"></div>
+    </div>
+
+    <div class="topcuts">
+      <h3>The three choices that cost you most</h3>
+      <p>If money were tight, these are the first places future-you would feel it.</p>
+      <div id="topCuts"></div>
+    </div>
+
+    <div class="flip">
+      <h3>The flip side 🌱</h3>
+      <p>This isn't about never having nice things. It's about understanding that <span class="hl">every rupee is a choice</span> — and the money has to come from somewhere first.</p>
+      <p>Here's the hopeful part: if future-you simply <span class="hl">saved ₹5,000 a month</span> from age 27 and invested it at ~12% a year, by age 47 it could grow to roughly <span class="hl">₹50 lakh</span>. Small, boring choices quietly become big ones.</p>
+      <p>A great life isn't the one with the biggest cart. It's the one where your spending matches a real plan you actually built.</p>
+    </div>
+
+    <div class="reflect">
+      <h3>Think it through</h3>
+      <ol>
+        <li>Which three things in your cart are truly worth working hard for — and which were just "nice to look at"?</li>
+        <li>What kind of work or skill could realistically pay the salary your dream year needs?</li>
+        <li>If you earned exactly what you expect to, what would you happily give up — and what would you keep?</li>
+        <li>What's one money habit you could start <em>now</em>, at your age, that future-you would thank you for?</li>
+      </ol>
+    </div>
+
+    <div class="r-actions">
+      <button class="btn-trim" id="btnTrim">← Trim my cart & re-check</button>
+      <button class="btn-reset" id="btnReset">Start a fresh year</button>
+    </div>
+
+    <p class="disclaimer">All prices, salaries and tax figures are rough 2026 estimates for learning and reflection only — real costs vary a lot by city, lifestyle and choices. This tool isn't financial advice; it's a conversation starter about how money, work and wants fit together. Tax is an approximation of India's new-regime slabs and ignores deductions, PF and other details.</p>
+  </div>
+</div>
+
+<footer>Built as a coaching reality-check · Brain Behaviour Academy</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
